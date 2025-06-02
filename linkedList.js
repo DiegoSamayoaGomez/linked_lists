@@ -100,6 +100,17 @@ const LinkedList = function () {
       return null;
     }
   };
+
+  // Represents your LinkedList objects as strings, so you can print them out and preview them in the console
+  let toString = () => {
+    let current = head;
+    let textOfValue = "";
+    while (current !== null) {
+      textOfValue += ` (${current.value}) ->`;
+      current = current.next;
+    }
+    return `${textOfValue} null`;
+  };
   return {
     append,
     preppend,
@@ -110,6 +121,7 @@ const LinkedList = function () {
     pop,
     contains,
     find,
+    toString,
   };
 };
 
@@ -119,6 +131,7 @@ const node = function (value, next = null) {
 
 let instanceOfLinkedList = LinkedList();
 //console.log(instanceOfLinkedList);
+instanceOfLinkedList.append(4);
 instanceOfLinkedList.preppend(1);
 instanceOfLinkedList.append(5);
 instanceOfLinkedList.append("Diego");
@@ -133,3 +146,4 @@ instanceOfLinkedList.append("Samayoa");
 //console.log("Size", instanceOfLinkedList.getSize());
 //console.log(instanceOfLinkedList.contains(5));
 //console.log(instanceOfLinkedList.find("Samayoa"));
+//console.log(instanceOfLinkedList.toString());
