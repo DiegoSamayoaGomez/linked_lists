@@ -39,7 +39,22 @@ const LinkedList = function () {
       }
     }
   };
-  return { append, preppend, getSize, getHead, getTail };
+
+  // Returns the node at the given index
+
+  let atIndex = (index) => {
+    let current = head;
+    let count = 0;
+
+    while (current) {
+      if (count === index) {
+        return current.value;
+      }
+      count++;
+      current = current.next;
+    }
+  };
+  return { append, preppend, getSize, getHead, getTail, atIndex };
 };
 
 const node = function (value, next = null) {
@@ -55,3 +70,4 @@ instanceOfLinkedList.append("Samayoa");
 console.log(instanceOfLinkedList.getSize());
 console.log(instanceOfLinkedList.getHead());
 console.log(instanceOfLinkedList.getTail());
+console.log(instanceOfLinkedList.atIndex(0));
