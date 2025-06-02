@@ -74,7 +74,6 @@ const LinkedList = function () {
     let current = head;
 
     while (current) {
-      console.log(current);
       if (current.value === value) {
         return true;
       }
@@ -82,6 +81,23 @@ const LinkedList = function () {
       if (current === null) {
         return false;
       }
+    }
+  };
+
+  // Returns the index of the node containing value, or null if not found.
+  let find = (value) => {
+    if (contains(value)) {
+      let current = head;
+      let count = 0;
+      while (current) {
+        if (current.value === value) {
+          return count;
+        }
+        count++;
+        current = current.next;
+      }
+    } else {
+      return null;
     }
   };
   return {
@@ -93,6 +109,7 @@ const LinkedList = function () {
     atIndex,
     pop,
     contains,
+    find,
   };
 };
 
@@ -102,7 +119,7 @@ const node = function (value, next = null) {
 
 let instanceOfLinkedList = LinkedList();
 //console.log(instanceOfLinkedList);
-//instanceOfLinkedList.preppend(1);
+instanceOfLinkedList.preppend(1);
 instanceOfLinkedList.append(5);
 instanceOfLinkedList.append("Diego");
 instanceOfLinkedList.append("Samayoa");
@@ -114,4 +131,5 @@ instanceOfLinkedList.append("Samayoa");
 //instanceOfLinkedList.toString();
 //instanceOfLinkedList.pop();
 //console.log("Size", instanceOfLinkedList.getSize());
-console.log(instanceOfLinkedList.contains(5));
+//console.log(instanceOfLinkedList.contains(5));
+//console.log(instanceOfLinkedList.find("Samayoa"));
