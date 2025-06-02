@@ -47,7 +47,7 @@ const LinkedList = function () {
 
     while (current) {
       if (count === index) {
-        return current.value;
+        return current;
       }
       count++;
       current = current.next;
@@ -69,7 +69,31 @@ const LinkedList = function () {
     size--;
   };
 
-  return { append, preppend, getSize, getHead, getTail, atIndex, pop };
+  // Returns true if the passed in value exists in the list, otherwise returns false
+  let contains = (value) => {
+    let current = head;
+
+    while (current) {
+      console.log(current);
+      if (current.value === value) {
+        return true;
+      }
+      current = current.next;
+      if (current === null) {
+        return false;
+      }
+    }
+  };
+  return {
+    append,
+    preppend,
+    getSize,
+    getHead,
+    getTail,
+    atIndex,
+    pop,
+    contains,
+  };
 };
 
 const node = function (value, next = null) {
@@ -89,4 +113,5 @@ instanceOfLinkedList.append("Samayoa");
 //console.log("xd");
 //instanceOfLinkedList.toString();
 //instanceOfLinkedList.pop();
-console.log("Size", instanceOfLinkedList.getSize());
+//console.log("Size", instanceOfLinkedList.getSize());
+console.log(instanceOfLinkedList.contains(5));
