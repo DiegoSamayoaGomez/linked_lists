@@ -41,7 +41,6 @@ const LinkedList = function () {
   };
 
   // Returns the node at the given index
-
   let atIndex = (index) => {
     let current = head;
     let count = 0;
@@ -54,7 +53,23 @@ const LinkedList = function () {
       current = current.next;
     }
   };
-  return { append, preppend, getSize, getHead, getTail, atIndex };
+
+  // Removes the last element from the list
+  let pop = () => {
+    if (!head) return "There is no head";
+
+    let current = head;
+    let previous;
+
+    while (current.next) {
+      previous = current;
+      current = current.next;
+    }
+    previous.next = null;
+    size--;
+  };
+
+  return { append, preppend, getSize, getHead, getTail, atIndex, pop };
 };
 
 const node = function (value, next = null) {
@@ -63,11 +78,15 @@ const node = function (value, next = null) {
 
 let instanceOfLinkedList = LinkedList();
 //console.log(instanceOfLinkedList);
-instanceOfLinkedList.preppend(1);
+//instanceOfLinkedList.preppend(1);
 instanceOfLinkedList.append(5);
-instanceOfLinkedList.preppend("Diego");
+instanceOfLinkedList.append("Diego");
 instanceOfLinkedList.append("Samayoa");
-console.log(instanceOfLinkedList.getSize());
-console.log(instanceOfLinkedList.getHead());
-console.log(instanceOfLinkedList.getTail());
-console.log(instanceOfLinkedList.atIndex(0));
+//console.log("Size", instanceOfLinkedList.getSize());
+//console.log("Head", instanceOfLinkedList.getHead());
+//console.log("Tail", instanceOfLinkedList.getTail());
+//console.log("At Index", instanceOfLinkedList.atIndex(0));
+//console.log("xd");
+//instanceOfLinkedList.toString();
+//instanceOfLinkedList.pop();
+console.log("Size", instanceOfLinkedList.getSize());
