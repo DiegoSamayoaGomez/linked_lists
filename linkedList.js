@@ -29,7 +29,17 @@ const LinkedList = function () {
   // Returns the first node in the list
   let getHead = () => head.value;
 
-  return { append, preppend, getSize, getHead };
+  // Returns the last node in the list
+  let getTail = () => {
+    let current = head;
+    while (current.next) {
+      current = current.next;
+      if (current.next === null) {
+        return current.value;
+      }
+    }
+  };
+  return { append, preppend, getSize, getHead, getTail };
 };
 
 const node = function (value, next = null) {
@@ -41,5 +51,7 @@ let instanceOfLinkedList = LinkedList();
 instanceOfLinkedList.preppend(1);
 instanceOfLinkedList.append(5);
 instanceOfLinkedList.preppend("Diego");
+instanceOfLinkedList.append("Samayoa");
 console.log(instanceOfLinkedList.getSize());
 console.log(instanceOfLinkedList.getHead());
+console.log(instanceOfLinkedList.getTail());
