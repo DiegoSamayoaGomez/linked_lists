@@ -1,15 +1,20 @@
 const LinkedList = function () {
-  const head = null;
-  const size = 0;
-  return { head, size };
+  let head = null;
+  let size = 0;
+
+  let preppend = (value) => {
+    head = node(value, head);
+    size++;
+  };
+
+  return { preppend };
 };
 
-const Node = function (value, next = null) {
-  const newValue = value;
-  const newNext = next;
-
-  return { newValue, newNext };
+const node = function (value, next = null) {
+  return { value, next };
 };
 
-const instanceOfLinkedList = LinkedList();
-console.log(instanceOfLinkedList);
+let instanceOfLinkedList = LinkedList();
+//console.log(instanceOfLinkedList);
+instanceOfLinkedList.preppend(1);
+instanceOfLinkedList.preppend(5);
